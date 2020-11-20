@@ -1,3 +1,5 @@
+#include <set>
+
 #include "communication.h"
 #include "memory_management.h"
 
