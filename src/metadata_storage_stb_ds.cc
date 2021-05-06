@@ -493,14 +493,21 @@ bool LocalDestroyBucket(SharedMemoryContext *context, RpcContext *rpc,
   return destroyed;
 }
 
-std::vector<TargetID> LocalGetTargets(MetadataManager *mdm,
+std::vector<TargetID> LocalGetTargets(SharedMemoryContext *context,
                                       IdList target_list) {
+  MetadataManager *mdm = GetMetadataManagerFromContext(context);
   u32 length = target_list.length;
-  std::vector<TargetID> result(length);
+  std::vector<TargetID> result;
+  result.reserve(length);
 
   u64 *target_ids = GetIdsPtr(mdm, target_list);
   for (u32 i = 0; i < length; ++i) {
-    result[i].as_int = target_ids[i];
+    TargetID id = {};
+    id.as_int = target_ids[i];
+    u64 remaining_capacity = LocalGetRemainingTargetCapacity(context, id);
+    if (remaining_capacity) {
+      result.push_back(id);
+    }
   }
   ReleaseIdsPtr(mdm);
 
@@ -509,7 +516,7 @@ std::vector<TargetID> LocalGetTargets(MetadataManager *mdm,
 
 std::vector<TargetID> LocalGetNodeTargets(SharedMemoryContext *context) {
   MetadataManager *mdm = GetMetadataManagerFromContext(context);
-  std::vector<TargetID> result = LocalGetTargets(mdm, mdm->node_targets);
+  std::vector<TargetID> result = LocalGetTargets(context, mdm->node_targets);
 
   return result;
 }
@@ -517,7 +524,7 @@ std::vector<TargetID> LocalGetNodeTargets(SharedMemoryContext *context) {
 std::vector<TargetID>
 LocalGetNeighborhoodTargets(SharedMemoryContext *context) {
   MetadataManager *mdm = GetMetadataManagerFromContext(context);
-  std::vector<TargetID> result = LocalGetTargets(mdm,
+  std::vector<TargetID> result = LocalGetTargets(context,
                                                  mdm->neighborhood_targets);
 
   return result;
