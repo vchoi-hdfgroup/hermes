@@ -181,27 +181,17 @@ Status VBucket::Attach(Trait* trait, Context& ctx) {
     }
   }
   if (!selected_trait) {
-    auto blob_ids =
-        GetBlobsFromVBucketInfo(&hermes_->context_, &hermes_->rpc_, id_);
-    for (const auto& blob_id : blob_ids) {
-      Trait* t = static_cast<Trait*>(trait);
-      TraitInput input;
-      auto bucket_id =
-          GetBucketIdFromBlobId(&hermes_->context_, &hermes_->rpc_, blob_id);
-      input.bucket_name =
-          GetBucketNameById(&hermes_->context_, &hermes_->rpc_, bucket_id);
-      input.blob_name =
-          GetBlobNameFromId(&hermes_->context_, &hermes_->rpc_, blob_id);
-      if (t->onAttachFn != nullptr) {
-        t->onAttachFn(hermes_, input, trait);
-        // TODO(hari): @errorhandling Check if attach was successful
-      }
+    Trait* t = static_cast<Trait*>(trait);
+    if (t->onAttachFn != nullptr) {
+      t->onAttachFn(hermes_, id_, trait);
+      // TODO(hari): @errorhandling Check if attach was successful
     }
+
     attached_traits_.push_back(trait);
   } else {
     ret = TRAIT_EXISTS_ALREADY;
     LOG(ERROR) << ret.Msg();
-  }
+  } 
 
   return ret;
 }
@@ -244,7 +234,7 @@ Status VBucket::Detach(Trait* trait, Context& ctx) {
       input.blob_name =
           GetBlobNameFromId(&hermes_->context_, &hermes_->rpc_, blob_id);
       if (t->onDetachFn != nullptr) {
-        t->onDetachFn(hermes_, input, trait);
+        t->onDetachFn(hermes_, id_, trait);
         // TODO(hari): @errorhandling Check if detach was successful
       }
     }
@@ -341,7 +331,7 @@ Status VBucket::Destroy(Context& ctx) {
     for (const auto& t : attached_traits_) {
       if (t->onDetachFn != nullptr) {
         TraitInput input = {};
-        t->onDetachFn(hermes_, input, t);
+        t->onDetachFn(hermes_, id_, t);
         // TODO(hari): @errorhandling Check if detach was successful
       }
     }
@@ -356,6 +346,57 @@ Status VBucket::Destroy(Context& ctx) {
     }
   }
 
+  return result;
+}
+
+size_t VBucket::Get(const std::string &name, Bucket *bkt, Blob &user_blob,
+                   const Context &ctx) {
+  size_t ret = Get(name, bkt, user_blob.data(), user_blob.size(), ctx);
+
+  return ret;
+}
+
+size_t VBucket::Get(const std::string &name, Bucket *bkt, Blob &user_blob)
+{
+  size_t result = Get(name, bkt, user_blob, ctx_);
+
+  return result;
+}
+
+size_t VBucket::Get(const std::string &name, Bucket *bkt, void *user_blob,
+                    size_t blob_size, const Context &ctx) {
+  bool do_prefetching = false;
+
+  if (user_blob && blob_size != 0)
+    do_prefetching = true;
+
+  size_t result = bkt->Get(name, user_blob, blob_size, ctx);
+
+  if (!do_prefetching)
+    return result;
+
+  LOG(INFO) << "HERMES_ORDER_TRAIT = " << HERMES_ORDER_TRAIT;
+  //prefetching
+  Trait* selected_trait = NULL;
+  for (const auto& t : attached_traits_) {
+    LOG(INFO) << "iterate trait " << t->id;
+    if (t->id == HERMES_ORDER_TRAIT) {
+      selected_trait = t;
+      break;
+    }
+  }
+
+  if (selected_trait) {
+    LOG(INFO) << "found prefetching trait";
+    OrderingTrait *prefetching_trait = (OrderingTrait *)selected_trait;
+    TraitInput input;
+    input.blob_name = name;
+    input.bucket_name = bkt->GetName();
+    if (prefetching_trait->onGetFn != nullptr) {
+      LOG(INFO) << "start onGetFn prefetching";
+      prefetching_trait->onGetFn(hermes_, input, prefetching_trait);
+    }
+  }
   return result;
 }
 

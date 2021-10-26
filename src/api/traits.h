@@ -30,17 +30,20 @@ typedef BlobInfo TraitInput;
 struct Trait;
 using HermesPtr = std::shared_ptr<Hermes>;
 
-typedef
-std::function<void(HermesPtr, TraitInput &, Trait *)> TraitCallback;
+typedef std::function<void(HermesPtr, TraitInput &, Trait *)> OnLinkCallback;
+typedef std::function<void(HermesPtr, VBucketID, Trait *)> OnAttachCallback;
+typedef std::function<bool(HermesPtr, std::pair<std::string, std::string>,
+                      std::pair<std::string, std::string>)> TraitOrder;
 
 struct Trait {
   TraitID id;
   TraitIdArray conflict_traits;
   TraitType type;
-  TraitCallback onAttachFn;
-  TraitCallback onDetachFn;
-  TraitCallback onLinkFn;
-  TraitCallback onUnlinkFn;
+  OnAttachCallback onAttachFn;
+  OnAttachCallback onDetachFn;
+  OnLinkCallback onLinkFn;
+  OnLinkCallback onUnlinkFn;
+  OnLinkCallback onGetFn;
 
   Trait() {}
   Trait(TraitID id, TraitIdArray conflict_traits, TraitType type);
@@ -48,10 +51,11 @@ struct Trait {
 
 #define HERMES_FILE_TRAIT 10
 #define HERMES_PERSIST_TRAIT 11
+#define HERMES_ORDER_TRAIT 12
 
 struct FileMappingTrait : public Trait {
-  TraitCallback flush_cb;
-  TraitCallback load_cb;
+  OnLinkCallback flush_cb;
+  OnLinkCallback load_cb;
   std::string filename;
   std::unordered_map<std::string, u64> offset_map;
   FILE *fh;
@@ -59,9 +63,9 @@ struct FileMappingTrait : public Trait {
   FileMappingTrait() {}
   FileMappingTrait(const std::string &filename,
                    std::unordered_map<std::string, u64> &offset_map, FILE *fh,
-                   TraitCallback flush_cb, TraitCallback load_cb);
-  void onAttach(HermesPtr hermes, TraitInput &blob, Trait *trait);
-  void onDetach(HermesPtr hermes, TraitInput &blob, Trait *trait);
+                   OnLinkCallback flush_cb, OnLinkCallback load_cb);
+  void onAttach(HermesPtr hermes, VBucketID id, Trait *trait);
+  void onDetach(HermesPtr hermes, VBucketID id, Trait *trait);
   void onLink(HermesPtr hermes, TraitInput &blob, Trait *trait);
   void onUnlink(HermesPtr hermes, TraitInput &blob, Trait *trait);
 };
@@ -74,10 +78,48 @@ struct PersistTrait : public Trait {
   explicit PersistTrait(FileMappingTrait mapping,
                         bool synchronous = false);
 
-  void onAttach(HermesPtr hermes, TraitInput &blob, Trait *trait);
-  void onDetach(HermesPtr hermes, TraitInput &blob, Trait *trait);
+  void onAttach(HermesPtr hermes, VBucketID id, Trait *trait);
+  void onDetach(HermesPtr hermes, VBucketID id, Trait *trait);
   void onLink(HermesPtr hermes, TraitInput &blob, Trait *trait);
   void onUnlink(HermesPtr hermes, TraitInput &blob, Trait *trait);
+};
+
+struct OrderingTrait : public Trait {
+ private:
+  HermesPtr hermes_;
+  std::vector<std::pair<std::string, std::string>> blobs_order_;
+  std::vector<int> blobs_customerized_order_;
+  void GetNextN(HermesPtr hermes, std::string blob_name,
+                std::string bkt_name, u8 num_blob_prefetch);
+  void Sort(HermesPtr hermes);
+ public:
+  u8 num_blob_prefetch_;
+  TraitOrder order_func_;
+  OrderingTrait(u8 num_blob_prefetch, TraitOrder order_func = nullptr,
+                const std::vector<int> &vect = std::vector<int>());
+  void onAttach(HermesPtr hermes, VBucketID id, Trait *trait);
+  void onDetach(HermesPtr hermes, VBucketID id, Trait *trait);
+  void onLink(HermesPtr hermes, TraitInput &blob, Trait *trait);
+  void onUnlink(HermesPtr hermes, TraitInput &blob, Trait *trait);
+  void onGet(HermesPtr hermes, TraitInput &blob, Trait *trait);
+  static bool NameAscend(HermesPtr hermes,
+                         const std::pair<std::string, std::string>,
+                         const std::pair<std::string, std::string>);
+  static bool NameDescend(HermesPtr hermes,
+                          const std::pair<std::string, std::string>,
+                          const std::pair<std::string, std::string>);
+
+  static bool SizeGreater(HermesPtr hermes,
+                          const std::pair<std::string, std::string>,
+                          const std::pair<std::string, std::string>);
+
+  static bool SizeLess(HermesPtr hermes,
+                       const std::pair<std::string, std::string>,
+                       const std::pair<std::string, std::string>);
+
+  static bool Importance(HermesPtr hermes,
+                         const std::pair<std::string, std::string>,
+                         const std::pair<std::string, std::string>);
 };
 
 }  // namespace api
