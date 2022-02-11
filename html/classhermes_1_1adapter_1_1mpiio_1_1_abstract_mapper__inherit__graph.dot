@@ -1,9 +1,0 @@
-digraph "hermes::adapter::mpiio::AbstractMapper"
-{
- // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="hermes::adapter::mpiio\l::AbstractMapper",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
-  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="hermes::adapter::mpiio\l::BalancedMapper",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1adapter_1_1mpiio_1_1_balanced_mapper.html",tooltip=" "];
-}

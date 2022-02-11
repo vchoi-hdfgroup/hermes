@@ -1,0 +1,7 @@
+<map id="hermes::RpcContext" name="hermes::RpcContext">
+<area shape="rect" id="node1" title=" " alt="" coords="107,273,261,300"/>
+<area shape="rect" id="node2" href="$structhermes_1_1_client_rpc_context.html" title=" " alt="" coords="5,184,197,211"/>
+<area shape="rect" id="node3" href="$structhermes_1_1_shared_memory_context.html" title=" " alt="" coords="221,184,451,211"/>
+<area shape="rect" id="node4" href="$structhermes_1_1_buffer_organizer.html" title=" " alt="" coords="245,95,427,121"/>
+<area shape="rect" id="node5" href="$classhermes_1_1_thread_pool.html" title=" " alt="" coords="260,5,412,32"/>
+</map>
