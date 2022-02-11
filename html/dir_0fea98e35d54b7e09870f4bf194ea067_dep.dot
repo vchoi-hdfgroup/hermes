@@ -1,0 +1,15 @@
+digraph "/home/runner/work/hermes/hermes/adapter/stdio" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_e1e69ce930e022c3a1e6db9f4102a095 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="adapter" fontname="Helvetica", fontsize="10", URL="dir_e1e69ce930e022c3a1e6db9f4102a095.html"]
+  subgraph clusterdir_0fea98e35d54b7e09870f4bf194ea067 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_0fea98e35d54b7e09870f4bf194ea067.html"];
+    dir_0fea98e35d54b7e09870f4bf194ea067 [shape=plaintext label="stdio"];
+    dir_381c57aadf7ca71f128e0b5aaa61236e [shape=box label="mapper" color="black" fillcolor="white" style="filled" URL="dir_381c57aadf7ca71f128e0b5aaa61236e.html"];
+  }
+  }
+  dir_68267d1309a1af8e8297ef4c3efbcdba [shape=box label="src" fillcolor="white" style="filled" color="red" URL="dir_68267d1309a1af8e8297ef4c3efbcdba.html"];
+  dir_0fea98e35d54b7e09870f4bf194ea067->dir_68267d1309a1af8e8297ef4c3efbcdba [headlabel="1", labeldistance=1.5 headhref="dir_000003_000014.html"];
+}

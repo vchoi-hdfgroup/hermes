@@ -1,0 +1,15 @@
+digraph "/home/runner/work/hermes/hermes/adapter/mpiio" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_e1e69ce930e022c3a1e6db9f4102a095 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="adapter" fontname="Helvetica", fontsize="10", URL="dir_e1e69ce930e022c3a1e6db9f4102a095.html"]
+  subgraph clusterdir_8c7ca881f10a70c0b3243f518e140db5 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_8c7ca881f10a70c0b3243f518e140db5.html"];
+    dir_8c7ca881f10a70c0b3243f518e140db5 [shape=plaintext label="mpiio"];
+    dir_b31b5d6be75ca7ec676b972518903a99 [shape=box label="mapper" color="black" fillcolor="white" style="filled" URL="dir_b31b5d6be75ca7ec676b972518903a99.html"];
+  }
+  }
+  dir_68267d1309a1af8e8297ef4c3efbcdba [shape=box label="src" fillcolor="white" style="filled" color="red" URL="dir_68267d1309a1af8e8297ef4c3efbcdba.html"];
+  dir_8c7ca881f10a70c0b3243f518e140db5->dir_68267d1309a1af8e8297ef4c3efbcdba [headlabel="1", labeldistance=1.5 headhref="dir_000001_000014.html"];
+}

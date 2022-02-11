@@ -1,0 +1,24 @@
+digraph "hermes::PushSize"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="hermes::PushSize",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="hermes::PushArray",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$memory__management_8h.html#a43ad59a28476e0276c14d97f3cca75a4",tooltip=" "];
+  Node2 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="hermes::PushSizeAndClear",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$memory__management_8cc.html#a3af04b76abe44434f1648c42fca15794",tooltip=" "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="hermes::PushClearedArray",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$memory__management_8h.html#af7df055d8c62e55527ac01e6c1e3d2e0",tooltip=" "];
+  Node4 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="hermes::PushClearedStruct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$memory__management_8h.html#a0b920cd44bd75f39129699a69ebcf15d",tooltip=" "];
+  Node5 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="hermes::PushStruct",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$memory__management_8h.html#ac37a162ed266d8f186e43f5d06b4f748",tooltip=" "];
+  Node6 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

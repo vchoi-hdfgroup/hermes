@@ -1,0 +1,15 @@
+digraph "hermes::MetadataManager"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="hermes::MetadataManager",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" vbucket_map_mutex\nblob_id_map_mutex\nbucket_map_mutex\nid_mutex\nvbucket_mutex\nbucket_mutex\nblob_info_map_mutex" ,fontname="Helvetica"];
+  Node2 [label="hermes::TicketMutex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhermes_1_1_ticket_mutex.html",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" node_targets\nneighborhood_targets" ,fontname="Helvetica"];
+  Node3 [label="hermes::IdList",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structhermes_1_1_id_list.html",tooltip=" "];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" first_free_bucket" ,fontname="Helvetica"];
+  Node4 [label="hermes::BucketID",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unionhermes_1_1_bucket_i_d.html",tooltip=" "];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" first_free_vbucket" ,fontname="Helvetica"];
+  Node5 [label="hermes::VBucketID",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unionhermes_1_1_v_bucket_i_d.html",tooltip=" "];
+}

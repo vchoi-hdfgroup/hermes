@@ -1,0 +1,30 @@
+digraph "api::Status::Msg"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="api::Status::Msg",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="hermes::api::VBucket\l::Attach",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1api_1_1_v_bucket.html#a82eaa7e8e2c25c96bf9aef5f6f8914ee",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="hermes::api::VBucket\l::Destroy",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1api_1_1_v_bucket.html#a8b392b4d30c1118a80e41f37e58ebc0a",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="hermes::api::Bucket\l::Destroy",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1api_1_1_bucket.html#a46360aedcfc50832303609b0fd541049",tooltip=" "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="hermes::api::VBucket\l::Detach",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1api_1_1_v_bucket.html#ae257c6f39661bbd9fce0655cf4fb49ed",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="hermes::api::VBucket\l::Link",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1api_1_1_v_bucket.html#a6d086cfdcec3a6195bb59f99d0b992b6",tooltip=" "];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="hermes::api::VBucket\l::Link",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1api_1_1_v_bucket.html#a9a2d3b0743c29f8e4636e871e2911da3",tooltip=" "];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="hermes::api::Bucket::Put",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1api_1_1_bucket.html#a441867ba2ca8319268104316b46966d4",tooltip="Puts a blob to a bucket."];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="hermes::api::Bucket\l::Rename",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1api_1_1_bucket.html#a527ed9f0ab1d1382c149e864332b68ab",tooltip=" "];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="hermes::api::Bucket\l::RenameBlob",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1api_1_1_bucket.html#a2ad35d22977d50c7a1cafa64693e49e4",tooltip=" "];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="hermes::api::VBucket\l::Unlink",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1api_1_1_v_bucket.html#af1ea7cd685b2264a405e1ced612088a9",tooltip=" "];
+  Node11 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="hermes::api::VBucket\l::Unlink",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1api_1_1_v_bucket.html#a6329f7c88429dc6563eaee71318b3a1a",tooltip=" "];
+}
