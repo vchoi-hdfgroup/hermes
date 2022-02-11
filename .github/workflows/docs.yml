@@ -51,8 +51,8 @@ jobs:
       - name: Build and Test
         run: ci/install_docs.sh
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        publish_dir: ./build/_build/html
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./build/_build/html
+          github-token: ${{ secrets.GITHUB_TOKEN }}
