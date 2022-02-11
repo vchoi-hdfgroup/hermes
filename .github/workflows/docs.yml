@@ -1,4 +1,4 @@
-name: Generate Doxygen documentation
+name: doxygen
 on:
   push:
     branches: [ main ]
@@ -10,7 +10,9 @@ env:
   LOCAL: local
 
 jobs:
+  # This workflow contains a single job called "build"
   build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
       - name: Get Sources
@@ -52,7 +54,5 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-        name: Catch2 Benchmark
-        tool: "catch2"
         publish_dir: ./build/_build/html
         github-token: ${{ secrets.GITHUB_TOKEN }}
