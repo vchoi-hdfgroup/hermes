@@ -1,0 +1,20 @@
+digraph "hermes::api::Bucket::Put"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="hermes::api::Bucket::Put",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="api::Status::Failed",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classapi_1_1_status.html#a76bfec0bbcd53e1c3904e0d619021162",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="hermes::RoundRobinState\l::GetCurrentDeviceIndex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1_round_robin_state.html#abff3f38fb83915f0a4cce1d7f12a2c97",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="hermes::api::Bucket\l::IsValid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1api_1_1_bucket.html#ab0f3448f247972e09644d405e84b71f7",tooltip=" "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="api::Status::Msg",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classapi_1_1_status.html#ac896de1ec4175376237ca1088e901f23",tooltip=" "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="hermes::api::Bucket\l::PutInternal",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1api_1_1_bucket.html#a409f78fc50a74d26d2623cde27a9a1ad",tooltip=" "];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="hermes::RoundRobinState\l::SetCurrentDeviceIndex",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhermes_1_1_round_robin_state.html#a923cfd23328602dc5d9343aeb5e72c71",tooltip=" "];
+}

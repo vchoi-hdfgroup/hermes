@@ -1,0 +1,15 @@
+digraph "hermes::GetDeviceById"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="hermes::GetDeviceById",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="hermes::GetBandwidths",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$buffer__pool_8cc.html#a02a03c2aa41e4113f2ef9e0d877c15b2",tooltip=" "];
+  Node2 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="hermes::InitFilesForBuffering",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$buffer__pool_8cc.html#ac40167a06e73b893a492c3708bc94556",tooltip=" "];
+  Node3 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}
