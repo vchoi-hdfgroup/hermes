@@ -1,12 +1,12 @@
 #!/bin/bash
 
 . /scr/hyoklee/src/spack/share/spack/setup-env.sh
-spack load mpich@3.4.2
 spack load mochi-thallium
 spack load gortools 
 spack load catch2 
 spack load sdl2
 spack load hdf5@develop-1.13
+spack load mpich@3.4.2
 set -x
 set -e
 set -o pipefail
@@ -14,11 +14,14 @@ set -o pipefail
 
 rm -rf build
 mkdir build
+which mpicxx
 pushd build
 
 INSTALL_PREFIX="${HOME}/${LOCAL}"
 
 export CXXFLAGS="${CXXFLAGS} -std=c++17 -Wno-error -Wall -Wextra"
+export LDFLAGS="${LDFLAGS} -ldl"
+export LD_LIBRARY_PATH="/scr/hyoklee/src/spack/opt/spack/linux-centos7-haswell/gcc-7.1.0/gortools-7.7-5a4bbbtwanwk5eavjintu743p3f7dfmp/lib/:/opt/pkgs/software/GCC/7.1.0/lib64:/usr/local/lib:/usr/lib:/usr/local/lib64:/usr/lib64"
 cmake                                                      \
     -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX}               \
     -DCMAKE_PREFIX_PATH=${INSTALL_PREFIX}                  \
@@ -35,7 +38,7 @@ cmake                                                      \
     -DHERMES_COMMUNICATION_MPI=ON                          \
     -DHERMES_BUILD_BUFFER_POOL_VISUALIZER=ON               \
     -DORTOOLS_DIR=${INSTALL_PREFIX}                        \
-    -DHERMES_USE_ADDRESS_SANITIZER=ON                      \
+    -DHERMES_USE_ADDRESS_SANITIZER=OFF                      \
     -DHERMES_USE_THREAD_SANITIZER=OFF                      \
     -DHERMES_RPC_THALLIUM=ON                               \
     -DHERMES_DEBUG_HEAP=OFF                                \
@@ -44,6 +47,6 @@ cmake                                                      \
     ..
 
 cmake --build . -- -j4
-ctest -VV
+ctest -VV -R "pubsub"
 
 popd
