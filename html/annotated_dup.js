@@ -56,6 +56,7 @@ var annotated_dup =
       [ "ScopedTemporaryMemory", "structhermes_1_1_scoped_temporary_memory.html", "structhermes_1_1_scoped_temporary_memory" ],
       [ "SharedMemoryContext", "structhermes_1_1_shared_memory_context.html", "structhermes_1_1_shared_memory_context" ],
       [ "ShmemClientInfo", "structhermes_1_1_shmem_client_info.html", "structhermes_1_1_shmem_client_info" ],
+      [ "ShmemString", "structhermes_1_1_shmem_string.html", "structhermes_1_1_shmem_string" ],
       [ "Stats", "structhermes_1_1_stats.html", "structhermes_1_1_stats" ],
       [ "SwapBlob", "structhermes_1_1_swap_blob.html", "structhermes_1_1_swap_blob" ],
       [ "SystemViewState", "structhermes_1_1_system_view_state.html", "structhermes_1_1_system_view_state" ],

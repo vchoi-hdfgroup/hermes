@@ -58,8 +58,8 @@ var NAVTREEINDEX =
 ".html",
 "classhermes_1_1adapter_1_1stdio_1_1_balanced_mapper.html#af53ddd972ba1848c27f005af0079cd07",
 "memory__management_8h.html#a60c1e09296fea0acd1dc8c2e387f455f",
-"structhermes_1_1_id_list.html#af0e6cd8d116133427a07bafead927e57",
-"structhermes_1_1adapter_1_1stdio_1_1_file_struct.html#a32c14c00a511f7e22ee1a5c1d0d78289"
+"structhermes_1_1_id_list.html#a5d0fbbb759a8f618ac5d304e5415106a",
+"structhermes_1_1adapter_1_1stdio_1_1_file_i_d.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

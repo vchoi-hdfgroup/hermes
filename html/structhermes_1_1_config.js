@@ -25,6 +25,7 @@ var structhermes_1_1_config =
     [ "rpc_port", "structhermes_1_1_config.html#a575d39cde8052151a0fcd566ead69379", null ],
     [ "rpc_protocol", "structhermes_1_1_config.html#adc876cfb62763cd57c27b1074dea419e", null ],
     [ "rpc_server_base_name", "structhermes_1_1_config.html#a67dd6ae978d1fb5821750f462217afe4", null ],
+    [ "rpc_server_host_file", "structhermes_1_1_config.html#ade9f12eca7406edbadf611fa9fd49fa9", null ],
     [ "rpc_server_suffix", "structhermes_1_1_config.html#a8d74871a970591bfaf6dac4b3427e8a7", null ],
     [ "slab_unit_sizes", "structhermes_1_1_config.html#a8cb8053713f812cce9c0f64da4d8f153", null ],
     [ "swap_mount", "structhermes_1_1_config.html#ae173732b283874f5282c639a987d8dbd", null ],

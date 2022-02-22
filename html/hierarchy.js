@@ -78,6 +78,7 @@ var hierarchy =
     [ "hermes::ScopedTemporaryMemory", "structhermes_1_1_scoped_temporary_memory.html", null ],
     [ "hermes::SharedMemoryContext", "structhermes_1_1_shared_memory_context.html", null ],
     [ "hermes::ShmemClientInfo", "structhermes_1_1_shmem_client_info.html", null ],
+    [ "hermes::ShmemString", "structhermes_1_1_shmem_string.html", null ],
     [ "hermes::adapter::Singleton< T >", "classhermes_1_1adapter_1_1_singleton.html", null ],
     [ "hermes::Stats", "structhermes_1_1_stats.html", null ],
     [ "api::Status", "classapi_1_1_status.html", null ],

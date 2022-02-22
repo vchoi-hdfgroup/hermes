@@ -95,11 +95,12 @@ Collaboration diagram for hermes::RpcContext:</div>
 <div class="dyncontent">
 <div class="center"><img src="structhermes_1_1_rpc_context__coll__graph.png" border="0" usemap="#hermes_1_1_rpc_context_coll__map" alt="Collaboration graph"/></div>
 <map name="hermes_1_1_rpc_context_coll__map" id="hermes_1_1_rpc_context_coll__map">
-<area shape="rect" title=" " alt="" coords="107,273,261,300"/>
+<area shape="rect" title=" " alt="" coords="259,273,413,300"/>
 <area shape="rect" href="structhermes_1_1_client_rpc_context.html" title=" " alt="" coords="5,184,197,211"/>
 <area shape="rect" href="structhermes_1_1_shared_memory_context.html" title=" " alt="" coords="221,184,451,211"/>
 <area shape="rect" href="structhermes_1_1_buffer_organizer.html" title=" " alt="" coords="245,95,427,121"/>
 <area shape="rect" href="classhermes_1_1_thread_pool.html" title=" " alt="" coords="260,5,412,32"/>
+<area shape="rect" href="structhermes_1_1_shmem_string.html" title=" " alt="" coords="475,184,642,211"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -115,6 +116,8 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
 <tr class="separator:aaa5705eac3bc8fc7224dae3308caa31d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a376b9ae54db1360bb613bb015c8cc5c0"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhermes_1_1_rpc_context.html#a376b9ae54db1360bb613bb015c8cc5c0">host_numbers</a></td></tr>
 <tr class="separator:a376b9ae54db1360bb613bb015c8cc5c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acea9588d66540597a933623c17d0ce32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhermes_1_1_shmem_string.html">ShmemString</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhermes_1_1_rpc_context.html#acea9588d66540597a933623c17d0ce32">host_names</a></td></tr>
+<tr class="separator:acea9588d66540597a933623c17d0ce32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac081cced6265ed2d8638ccb35a6be801"><td class="memItemLeft" align="right" valign="top"><a id="ac081cced6265ed2d8638ccb35a6be801"></a>
 u32&#160;</td><td class="memItemRight" valign="bottom"><b>node_id</b></td></tr>
 <tr class="separator:ac081cced6265ed2d8638ccb35a6be801"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,6 +127,9 @@ u32&#160;</td><td class="memItemRight" valign="bottom"><b>num_nodes</b></td></tr
 <tr class="memitem:a91688994e798392630254ab3ea18b11a"><td class="memItemLeft" align="right" valign="top"><a id="a91688994e798392630254ab3ea18b11a"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>port</b></td></tr>
 <tr class="separator:a91688994e798392630254ab3ea18b11a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af03c9cfc7177ac946c53d2460cd1d536"><td class="memItemLeft" align="right" valign="top"><a id="af03c9cfc7177ac946c53d2460cd1d536"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>use_host_file</b></td></tr>
+<tr class="separator:af03c9cfc7177ac946c53d2460cd1d536"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba2ad4232f1c94d3eab0b05c6e8fd8d6"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhermes_1_1_rpc_context.html#aba2ad4232f1c94d3eab0b05c6e8fd8d6">base_hostname</a> [kMaxServerNameSize]</td></tr>
 <tr class="separator:aba2ad4232f1c94d3eab0b05c6e8fd8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a450d683e32f6e176bbe31156557daf30"><td class="memItemLeft" align="right" valign="top"><a id="a450d683e32f6e176bbe31156557daf30"></a>
@@ -146,6 +152,21 @@ StartFunc&#160;</td><td class="memItemRight" valign="bottom"><b>start_server</b>
       </table>
 </div><div class="memdoc">
 <p>The host name without the host number. Allows programmatic construction of predictable host names like cluster-node-1, cluster-node-2, etc. without storing extra copies of the base hostname. </p>
+
+</div>
+</div>
+<a id="acea9588d66540597a933623c17d0ce32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acea9588d66540597a933623c17d0ce32">&#9670;&nbsp;</a></span>host_names</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structhermes_1_1_shmem_string.html">ShmemString</a>* hermes::RpcContext::host_names</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Array of host names stored in shared memory. This array size is RpcContext::num_nodes. </p>
 
 </div>
 </div>

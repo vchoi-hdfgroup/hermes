@@ -13,6 +13,7 @@ var structhermes_1_1_metadata_manager =
     [ "first_free_vbucket", "structhermes_1_1_metadata_manager.html#a20d9800f1a298124cc261ce53e82a16d", null ],
     [ "global_system_view_state_node_id", "structhermes_1_1_metadata_manager.html#a000240ff4dbb339df450f654f96de616", null ],
     [ "global_system_view_state_offset", "structhermes_1_1_metadata_manager.html#a0d3e57d4c5c28ee508923c05b3fd9725", null ],
+    [ "host_names_offset", "structhermes_1_1_metadata_manager.html#a6a5cd5b617c90fbe23f31244c55ba0e3", null ],
     [ "host_numbers_offset", "structhermes_1_1_metadata_manager.html#a79b294bf5681d7c192114f036023836d", null ],
     [ "id_heap_offset", "structhermes_1_1_metadata_manager.html#a8f53b7f2714dd166533808334204fea6", null ],
     [ "id_mutex", "structhermes_1_1_metadata_manager.html#a8baf9fdbfbee778df7f40d26189ae41c", null ],

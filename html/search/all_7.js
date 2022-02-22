@@ -16,9 +16,10 @@ var searchData=
   ['hermes_5fsize_166',['hermes_size',['../structhermes_1_1_communication_context.html#a06d87493716a999f81cc5d386662218a',1,'hermes::CommunicationContext']]],
   ['hermesrequest_167',['HermesRequest',['../structhermes_1_1adapter_1_1mpiio_1_1_hermes_request.html',1,'hermes::adapter::mpiio']]],
   ['hermesstruct_168',['HermesStruct',['../structhermes_1_1adapter_1_1mpiio_1_1_hermes_struct.html',1,'hermes::adapter::mpiio::HermesStruct'],['../structhermes_1_1adapter_1_1stdio_1_1_hermes_struct.html',1,'hermes::adapter::stdio::HermesStruct'],['../structhermes_1_1adapter_1_1posix_1_1_hermes_struct.html',1,'hermes::adapter::posix::HermesStruct'],['../structhermes_1_1adapter_1_1mpiio_1_1_hermes_struct.html#a8b2d57ae9e51c09fe2e8f38990048475',1,'hermes::adapter::mpiio::HermesStruct::HermesStruct()'],['../structhermes_1_1adapter_1_1posix_1_1_hermes_struct.html#a67d119c0e5bb564b396fc2e5ad078347',1,'hermes::adapter::posix::HermesStruct::HermesStruct()'],['../structhermes_1_1adapter_1_1stdio_1_1_hermes_struct.html#a789f7c98a26c7604a7c8fe8d021affb9',1,'hermes::adapter::stdio::HermesStruct::HermesStruct()']]],
-  ['host_5fnumbers_169',['host_numbers',['../structhermes_1_1_config.html#af4fea76e357db0d1ef29031535d47c4e',1,'hermes::Config::host_numbers()'],['../structhermes_1_1_rpc_context.html#a376b9ae54db1360bb613bb015c8cc5c0',1,'hermes::RpcContext::host_numbers()']]],
-  ['mpiio_170',['mpiio',['../namespacehermes_1_1adapter_1_1mpiio.html',1,'hermes::adapter']]],
-  ['posix_171',['posix',['../namespacehermes_1_1adapter_1_1posix.html',1,'hermes::adapter']]],
-  ['pubsub_172',['pubsub',['../namespacehermes_1_1adapter_1_1pubsub.html',1,'hermes::adapter::pubsub'],['../namespacehermes_1_1pubsub.html',1,'hermes::pubsub']]],
-  ['stdio_173',['stdio',['../namespacehermes_1_1adapter_1_1stdio.html',1,'hermes::adapter']]]
+  ['host_5fnames_169',['host_names',['../structhermes_1_1_rpc_context.html#acea9588d66540597a933623c17d0ce32',1,'hermes::RpcContext']]],
+  ['host_5fnumbers_170',['host_numbers',['../structhermes_1_1_config.html#af4fea76e357db0d1ef29031535d47c4e',1,'hermes::Config::host_numbers()'],['../structhermes_1_1_rpc_context.html#a376b9ae54db1360bb613bb015c8cc5c0',1,'hermes::RpcContext::host_numbers()']]],
+  ['mpiio_171',['mpiio',['../namespacehermes_1_1adapter_1_1mpiio.html',1,'hermes::adapter']]],
+  ['posix_172',['posix',['../namespacehermes_1_1adapter_1_1posix.html',1,'hermes::adapter']]],
+  ['pubsub_173',['pubsub',['../namespacehermes_1_1adapter_1_1pubsub.html',1,'hermes::adapter::pubsub'],['../namespacehermes_1_1pubsub.html',1,'hermes::pubsub']]],
+  ['stdio_174',['stdio',['../namespacehermes_1_1adapter_1_1stdio.html',1,'hermes::adapter']]]
 ];
