@@ -42,10 +42,10 @@ popd
 git clone https://github.com/jya-kmu/hdf5-iotest.git
 cd hdf5-iotest
 git checkout hermes-vfd
-ls ${HOME}/install/bin
+pwd
 ./autogen.sh
-CC=${HOME}/install/bin/h5pcc ./configure --prefix=${HOME}/install
+CC=h5pcc ./configure --prefix=${HOME}/install
 make
 make install
 ls 
-ls ${HOME}/install/bin
+ls ${HOME}/install
