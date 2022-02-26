@@ -33,7 +33,7 @@ cmake                                                      \
     -DHERMES_RPC_THALLIUM=ON                               \
     -DHERMES_DEBUG_HEAP=OFF                                \
     -DHERMES_ENABLE_VFD=ON                                 \
-    -DHERMES_ENABLE_WRAPPER=ON                             \    
+    -DHERMES_ENABLE_WRAPPER=ON                             \
     -DBUILD_TESTING=ON                                     \
     ..
 
