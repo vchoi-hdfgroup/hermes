@@ -41,4 +41,4 @@ jobs:
         run: ci/install_deps.sh
 
       - name: Build and Test
-        run: ci/install_h5io.sh
+        run: ci/install_h5iotest.sh
