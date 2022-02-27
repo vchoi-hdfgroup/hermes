@@ -39,7 +39,10 @@ cmake                                                      \
 
 cmake --build . -- -j4
 popd
-git clone https://github.com/jya-kmu/hdf5-iotest.git
+# This repository throws a compilation error of mssing "config.h."
+# git clone https://github.com/jya-kmu/hdf5-iotest.git
+
+git clone https://github.com/HDFGroup/hdf5-iotest.git
 cd hdf5-iotest
 git checkout hermes-vfd
 pwd
