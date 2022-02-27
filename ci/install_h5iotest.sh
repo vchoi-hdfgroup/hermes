@@ -43,9 +43,9 @@ git clone https://github.com/jya-kmu/hdf5-iotest.git
 cd hdf5-iotest
 git checkout hermes-vfd
 pwd
+ls ${HOME}
 ./autogen.sh
-CC=h5pcc ./configure --prefix=${HOME}/install
+CC=h5pcc ./configure --prefix=${HOME}/local
 make
 make install
-ls 
-ls ${HOME}/install
+ls ${HOME}/local/bin
