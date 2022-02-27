@@ -13,6 +13,7 @@ DEPENDENCY_PREFIX="${HOME}/${LOCAL}"
 INSTALL_PREFIX="${HOME}/install"
 
 export CXXFLAGS="${CXXFLAGS} -std=c++17 -Werror -Wall -Wextra"
+
 cmake                                                      \
     -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX}               \
     -DCMAKE_PREFIX_PATH=${DEPENDENCY_PREFIX}               \
@@ -48,9 +49,13 @@ git clone https://github.com/hyoklee/hdf5-iotest.git
 cd hdf5-iotest
 git checkout hermes-vfd
 pwd
+export LD_LIBRARY_PATH="${INSTALL_PREFIX}/lib:$LD_LIBRARY_PATH"
+echo $LD_LIBRARY_PATH
 ls ${HOME}/local/bin
+ls ${INSTALL_PREFIX}/lib
 ./autogen.sh
 CC=${HOME}/local/bin/h5pcc ./configure --prefix=${HOME}/local
+
 make
 make install
 ls ${HOME}/local/bin
