@@ -28,7 +28,7 @@ mkdir -p build
 pushd build
 CXXFLAGS=-I"${INSTALL_DIR}/include" LDFLAGS="-L${INSTALL_DIR}/lib -Wl,-rpath,${INSTALL_DIR}/lib" \
         ../configure --prefix="${INSTALL_DIR}" --enable-parallel
-make -j 4 && make install
+make -j 2 && make install
 popd
 popd
 
