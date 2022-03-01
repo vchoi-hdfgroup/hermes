@@ -56,7 +56,7 @@ echo $CFLAGS
 export CFLAGS="-lhdf5_hermes_vfd"
 echo $CFLAGS
 echo $LDFLAGS
-export LDFLAGS="-L${INSTALL_PREFIX}/lib"
+export LDFLAGS="-L${INSTALL_PREFIX}/lib -lhdf5_hermes_vfd"
 echo $LDFLAGS
 export HDF5_DIR="${HOME}/local/share/cmake"
 ls ${HOME}/local/bin
