@@ -63,6 +63,7 @@ mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=${HOME}/local  ..
 make
+make install
 ls ${HOME}/local/bin
 export HERMES_CONF="${HOME}/work/hermes/hermes/benchmarks/HermesVFD/hermes.conf_4KB_128KB_example"
 GLOG_minloglevel=2 ${HOME}/local/bin/hdf5_iotest ${HOME}/work/hermes/hermes/benchmarks/HermesVFD/hdf5_iotest.ini
