@@ -26,7 +26,7 @@ git checkout hdf5-${HDF5_VERSION}
 mkdir -p build
 pushd build
 CXXFLAGS=-I"${INSTALL_DIR}/include" LDFLAGS="-L${INSTALL_DIR}/lib -Wl,-rpath,${INSTALL_DIR}/lib" \
-        cmake -DHDF5_ENABLE_PARALLEL:BOOL=ON -DCMAKE_INSTALL_PREFIX=${INSALL_DIR} .. 
+        cmake -DHDF5_ENABLE_PARALLEL:BOOL=ON -DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} .. 
 make -j 2 && make install
 popd
 popd
