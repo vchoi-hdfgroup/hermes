@@ -1,11 +1,10 @@
-name: doxygen
+name: h5iotest_kmu
 on:
   push:
     branches: [ master ]
   workflow_dispatch:
 
 env:
-  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Debug
   LOCAL: local
 
@@ -17,12 +16,6 @@ jobs:
     steps:
       - name: Get Sources
         uses: actions/checkout@v2
-
-      - name: Setup python
-        uses: actions/setup-python@v1
-
-      - name: Run cpplint
-        run: pip install cpplint==1.5.4 && cpplint --recursive --exclude=src/stb_ds.h .
 
       - name: Cache Spack packages
         uses: actions/cache@v2
@@ -42,19 +35,10 @@ jobs:
           sudo apt-get install -y lcov
           sudo apt-get install -y zlib1g-dev
           sudo apt-get install -y libsdl2-dev
-          sudo apt-get install -y graphviz
-          sudo apt-get install -y doxygen
 
       - name: Build And Install Dependencies
         if: steps.spack-cache.outputs.cache-hit != 'true'
-        run: ci/install_deps.sh
+        run: ci/install_deps_cmake.sh
 
       - name: Build and Test
-        run: ci/install_docs.sh
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          publish_dir: ./build/_build/html
-          destination_dir: html
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        run: ci/install_h5iotest_kmu.sh
