@@ -53,6 +53,7 @@ echo $LD_LIBRARY_PATH
 export LD_LIBRARY_PATH="${INSTALL_PREFIX}/lib":$LD_LIBRARY_PATH
 echo $LDFLAGS
 export LDFLAGS="-L${INSTALL_PREFIX}/lib"
+export HDF5_DIR="${HOME}/local/share/cmake"
 echo $LD_LIBRARY_PATH
 ls ${HOME}/local/bin
 ls ${INSTALL_PREFIX}/lib
