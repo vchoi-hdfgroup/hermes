@@ -51,13 +51,14 @@ git checkout hermes-vfd
 pwd
 echo $LD_LIBRARY_PATH
 export LD_LIBRARY_PATH="${INSTALL_PREFIX}/lib":$LD_LIBRARY_PATH
+echo $LD_LIBRARY_PATH
 echo $CFLAGS
-export CFLAGS="${CFLAGS} -lhdf5_hermes_vfd"
+export CFLAGS="-lhdf5_hermes_vfd"
 echo $CFLAGS
 echo $LDFLAGS
 export LDFLAGS="-L${INSTALL_PREFIX}/lib"
+echo $LDFLAGS
 export HDF5_DIR="${HOME}/local/share/cmake"
-echo $LD_LIBRARY_PATH
 ls ${HOME}/local/bin
 ls ${INSTALL_PREFIX}/lib
 mkdir build
