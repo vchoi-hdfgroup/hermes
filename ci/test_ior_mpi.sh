@@ -1,6 +1,6 @@
 #!/bin/bash
 HEREMS_CONF_PATH=/home/hermes/hermes/test/data/hermes.conf
-HERMES_INSTAA_DIR=/home/hermes/install
+HERMES_INSTALL_DIR=/home/hermes/install
 CHECKPOINT_FILE=checkpoint.tmp
 mpirun -n 1 -ppn 1 \
   -genv HERMES_CONF ${HERMES_CONF_PATH} \
