@@ -1,7 +1,7 @@
 name: h5iotest_kmu
 on:
   push:
-    branches: [ master ]
+    branches: [ gh-pages ]
   workflow_dispatch:
 
 env:

@@ -1,7 +1,7 @@
 name: h5iotest
 on:
   push:
-    branches: [ master ]
+    branches: [ gh-pages ]
   workflow_dispatch:
 
 env:

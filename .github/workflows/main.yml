@@ -1,13 +1,13 @@
 # CodeCoverage result can be found at https://coveralls.io/github/HDFGroup/hermes
 
-name: GitHub Actions
+name: ubuntu 20.04
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   push:
   pull_request:
-    branches: [ master ]
+    branches: [ gh-pages ]
   workflow_dispatch:
     inputs:
       debug_enabled:
