@@ -23,16 +23,11 @@ jobs:
         repository: mochi-hpc/mochi-spack-packages
         ref: f015ae93717ac3b81972c55116c3b91aa9c645e4
         path: ./mochi-spack-packages
-    - name: Dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install libtool
 
     - name: Run Spack
       run: |
         . ./spack/share/spack/setup-env.sh
         spack compiler find
-        spack compiler info
         spack repo add ./mochi-spack-packages
         spack repo add ./ci/hermes
         spack install ior+hermes
