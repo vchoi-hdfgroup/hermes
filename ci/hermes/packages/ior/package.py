@@ -22,7 +22,8 @@ class Ior(AutotoolsPackage):
 
     variant('hdf5',  default=False, description='support IO with HDF5 backend')
     variant('ncmpi', default=False, description='support IO with NCMPI backend')
-
+    variant('hermes', default=True, description='support IO with Hermes')
+    
     depends_on('autoconf', type='build')
     depends_on('automake', type='build')
     depends_on('libtool', type='build')
@@ -30,7 +31,7 @@ class Ior(AutotoolsPackage):
     depends_on('mpi')
     depends_on('hdf5+mpi', when='+hdf5')
     depends_on('parallel-netcdf', when='+ncmpi')
-
+    depends_on('hermes', when='+hermes')
     # The build for 3.2.0 fails if hdf5 is enabled
     # See https://github.com/hpc/ior/pull/124
     patch('https://github.com/hpc/ior/commit/1dbca5c293f95074f9887ddb2043fa984670fb4d.patch',

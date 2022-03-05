@@ -1,0 +1,24 @@
+name: spack ior
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get Sources
+      uses: actions/checkout@v2
+    
+    - name: Checkout Spack
+      uses: actions/checkout@v2
+      with:
+        repository: spack/spack
+        path: ./spack
+
+    - name: Run Spack
+      run: |
+        . ./spack/share/spack/setup-env.sh
+        spack repo add ./ci/hermes
+        spack install ior+hermes
