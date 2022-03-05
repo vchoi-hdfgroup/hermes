@@ -30,6 +30,4 @@ jobs:
         spack compiler find
         spack repo add ./mochi-spack-packages
         spack repo add ./ci/hermes
-        # spack bootstrap untrust github-actions
-        spack -d install catch2@2.13.3
-        # spack install ior+hermes
+        spack -d install ior+hermes
