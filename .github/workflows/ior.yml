@@ -26,6 +26,7 @@ jobs:
 
     - name: Run Spack
       run: |
+        pip clingo
         . ./spack/share/spack/setup-env.sh
         spack compiler find
         spack repo add ./mochi-spack-packages
