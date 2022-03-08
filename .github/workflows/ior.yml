@@ -30,4 +30,6 @@ jobs:
         spack compiler find
         spack repo add ./mochi-spack-packages
         spack repo add ./ci/hermes
-        spack -d install ior+hermes
+        spack install ior+hermes+hdf5
+	./ci/test_ior_mpi.sh
+	./ci/test_ior_hdf5.sh
