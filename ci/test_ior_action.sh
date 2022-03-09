@@ -1,7 +1,7 @@
 #!/bin/bash
 spack load ior+hermes+hdf5
 HERMES_CONF_PATH=$HOME/work/hermes/hermes/test/data/hermes.conf
-HERMES_INSTALL_DIR=$HOME/work/hemes/hermes/install
+HERMES_INSTALL_DIR=$HOME/work/hermes/hermes/install
 CHECKPOINT_FILE=checkpoint.tmp
 mpirun -n 1 -ppn 1 \
   -genv HERMES_CONF ${HERMES_CONF_PATH} \
