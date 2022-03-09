@@ -1,5 +1,11 @@
 #!/bin/bash
 spack load ior+hermes+hdf5
+
+ls $HOME
+ls $HOME/work
+ls $HOME/work/hermes
+ls $HOME/work/hermes/hermes
+
 HERMES_CONF_PATH=$HOME/work/hermes/hermes/test/data/hermes.conf
 HERMES_INSTALL_DIR=$HOME/work/hermes/hermes/install
 CHECKPOINT_FILE=checkpoint.tmp
