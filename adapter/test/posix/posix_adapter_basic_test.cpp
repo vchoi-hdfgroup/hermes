@@ -11,7 +11,9 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include <sys/stat.h>
-
+#ifdef __APPLE__
+#define O_DIRECT O_WRONLY 
+#endif
 TEST_CASE("Open", "[process=" + std::to_string(info.comm_size) +
                       "]"
                       "[operation=single_open]"
