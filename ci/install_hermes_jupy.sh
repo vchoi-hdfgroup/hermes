@@ -11,6 +11,10 @@ sudo apt-get install -y lcov
 sudo apt-get install -y zlib1g-dev
 sudo apt-get install -y libsdl2-dev
 sudo apt-get install -y cmake
+cd work
+mkdir tmp
+export TMP=~/work/tmp
+export SPACK_LOCAL_DIR=~/work/tmp
 git clone https://github.com/spack/spack
 git clone https://github.com/mochi-hpc/mochi-spack-packages
 git clone https://github.com/hyoklee/hermes

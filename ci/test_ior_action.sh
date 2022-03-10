@@ -1,14 +1,12 @@
 #!/bin/bash
 spack load ior+hermes+hdf5
-
-ls $HOME
-ls $HOME/work
-ls $HOME/work/hermes
-ls $HOME/work/hermes/hermes
-
 HERMES_CONF_PATH=$HOME/work/hermes/hermes/test/data/hermes.conf
 HERMES_INSTALL_DIR=$HOME/work/hermes/hermes/install
 CHECKPOINT_FILE=checkpoint.tmp
+ior -a=MPIIO -w -k -o ${CHECKPOINT_FILE} -t 1m -b 128m -F -e -Y -O summaryFormat=CSV
+ls
+ior -a=HDF5 -w -k -o ${CHECKPOINT_FILE} -t 1m -b 128m -F -e -Y -O summaryFormat=CSV
+ls
 mpirun -n 1 -ppn 1 \
   -genv HERMES_CONF ${HERMES_CONF_PATH} \
   ${HERMES_INSTALL_DIR}/bin/hermes_daemon &
@@ -57,4 +55,4 @@ mpirun -n 2 -ppn 1 \
     ior -a=HDF5 -r -o ${CHECKPOINT_FILE} -t 1m -b 128m -F -e -O summaryFormat=CSV
 rm *.hermes
 rm checkpoint.tmp*
-rm testFile
+

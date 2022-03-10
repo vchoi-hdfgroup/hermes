@@ -806,6 +806,10 @@ std::string GetServerName(RpcContext *rpc, u32 node_id,
   struct hostent *hostname_result;
   int hostname_error = 0;
   char hostname_buffer[4096] = {};
+#ifdef __APPLE__
+  hostname_result = gethostbyname(host_name.c_str());
+      in_addr **addr_list = (struct in_addr **)hostname_result->h_addr_list;
+#else
   int gethostbyname_result = gethostbyname_r(host_name.c_str(), &hostname_info,
                                              hostname_buffer, 4096,
                                              &hostname_result, &hostname_error);
@@ -813,6 +817,7 @@ std::string GetServerName(RpcContext *rpc, u32 node_id,
     LOG(FATAL) << hstrerror(h_errno);
   }
   in_addr **addr_list = (struct in_addr **)hostname_info.h_addr_list;
+#endif                                                 
   if (!addr_list[0]) {
     LOG(FATAL) << hstrerror(h_errno);
   }
