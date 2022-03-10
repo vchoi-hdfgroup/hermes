@@ -486,7 +486,7 @@ TEST_CASE("fseeko", "[process=" + std::to_string(info.comm_size) +
   }
   posttest(false);
 }
-
+#ifndef __APPLE__
 TEST_CASE("fseeko64", "[process=" + std::to_string(info.comm_size) +
                           "]"
                           "[operation=single_fseeko64]"
@@ -520,6 +520,7 @@ TEST_CASE("fseeko64", "[process=" + std::to_string(info.comm_size) +
   }
   posttest(false);
 }
+#endif
 
 TEST_CASE("rewind", "[process=" + std::to_string(info.comm_size) +
                         "]"
