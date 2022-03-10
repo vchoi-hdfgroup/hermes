@@ -551,7 +551,7 @@ TEST_CASE("rewind", "[process=" + std::to_string(info.comm_size) +
   }
   posttest(false);
 }
-
+#ifndef __APPLE__
 TEST_CASE("fsetpos", "[process=" + std::to_string(info.comm_size) +
                          "]"
                          "[operation=single_fsetpos]"
@@ -752,6 +752,7 @@ TEST_CASE("Freopen64", "[process=" + std::to_string(info.comm_size) +
   }
   posttest(false);
 }
+#endif
 
 TEST_CASE("MultiOpen", "[process=" + std::to_string(info.comm_size) +
                            "]"
