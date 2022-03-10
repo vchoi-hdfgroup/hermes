@@ -25,6 +25,10 @@
 #include "posix/posix.h"
 #endif
 
+#ifdef __APPLE__
+#define O_TMPFILE O_CREAT 
+#endif
+
 namespace fs = std::experimental::filesystem;
 
 namespace hermes::adapter::posix::test {
@@ -322,13 +326,10 @@ int fh_cmp;
 int status_orig;
 size_t size_read_orig;
 size_t size_written_orig;
+    
 void test_open(const char* path, int flags, ...) {
   int mode = 0;
-#ifdef __APPLE__
-  if (flags & O_CREAT) {
-#else  
   if (flags & O_CREAT || flags & O_TMPFILE) {
-#endif      
     va_list arg;
     va_start(arg, flags);
     mode = va_arg(arg, int);
