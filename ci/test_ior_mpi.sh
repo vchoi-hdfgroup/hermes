@@ -13,7 +13,7 @@ mpirun -n 2 -ppn 1 \
    -genv HERMES_CLIENT 1 \
    -genv ADAPTER_MODE SCRATCH \
    -genv HERMES_STOP_DAEMON 0 \
-   ior -a=MPIIO -w -k -o ${CHECKPOINT_FILE} -t 1m -b 128m -F -e -Y -O summaryFormat=CSV
+   ior -a=MPIIO -w -k -o ${CHECKPOINT_FILE} -t 1m -b 128m -F -e -Y -O summaryFormat=CSV -O summaryFile=mpiio.w.csv
 sleep 10
 mpirun -n 1 -ppn 1 \
   -genv HERMES_CONF ${HERMES_CONF_PATH} \
@@ -24,5 +24,5 @@ mpirun -n 2 -ppn 1 \
     -genv HERMES_CONF ${HERMES_CONF_PATH} \
     -genv HERMES_CLIENT 1 \
     -genv ADAPTER_MODE SCRATCH \
-   ior -a=MPIIO -r -o ${CHECKPOINT_FILE} -t 1m -b 128m -F -e -O summaryFormat=CSV
+   ior -a=MPIIO -r -o ${CHECKPOINT_FILE} -t 1m -b 128m -F -e -O summaryFormat=CSV -O summaryFile=mpiio.r.csv
 rm *.hermes

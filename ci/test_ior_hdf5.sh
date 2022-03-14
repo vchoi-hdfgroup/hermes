@@ -13,7 +13,7 @@ mpirun -n 2 -ppn 1 \
    -genv HERMES_CLIENT 1 \
    -genv ADAPTER_MODE SCRATCH \
   -genv HERMES_STOP_DAEMON 0 \
-   ior -a=HDF5 -w -k -o ${CHECKPOINT_FILE} -t 1m -b 128m -F -e -Y
+   ior -a=HDF5 -w -k -o ${CHECKPOINT_FILE} -t 1m -b 128m -F -e -Y -O summaryFormat=CSV -O summaryFile=hdf5.w.csv
 sleep 10
 mpirun -n 1 -ppn 1 \
   -genv HERMES_CONF ${HERMES_CONF_PATH} \
@@ -24,7 +24,7 @@ mpirun -n 2 -ppn 1 \
      -genv HERMES_CONF ${HERMES_CONF_PATH} \
      -genv HERMES_CLIENT 1 \
      -genv ADAPTER_MODE SCRATCH \
-    ior -a=HDF5 -r -o ${CHECKPOINT_FILE} -t 1m -b 128m -F -e -O summaryFormat=CSV
+    ior -a=HDF5 -r -o ${CHECKPOINT_FILE} -t 1m -b 128m -F -e -O summaryFormat=CSV  -O summaryFile=hdf5.r.csv
 rm *.hermes
 rm checkpoint.tmp*
-rm testFile
+
