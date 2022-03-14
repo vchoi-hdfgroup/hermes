@@ -34,3 +34,9 @@ jobs:
         spack view --verbose symlink install ior+hermes+hdf5
         ./ci/test_ior_action.sh
 
+    - name: Upload
+      uses: actions/upload-artifact@v2
+      with:
+        name: result.zip
+        path: ${{ runner.workspace }}/hermes/result.zip
+        

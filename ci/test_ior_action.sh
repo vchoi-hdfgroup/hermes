@@ -62,4 +62,5 @@ mpirun -n 2 -ppn 1 \
 rm *.hermes
 rm checkpoint.tmp*
 ls
+zip result *.csv
 
