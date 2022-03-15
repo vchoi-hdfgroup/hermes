@@ -34,7 +34,7 @@ mpirun -n 2 -ppn 1 \
    -genv HERMES_CLIENT 1 \
    -genv ADAPTER_MODE SCRATCH \
    -genv HERMES_STOP_DAEMON 0 \
-   ior -a=MPIIO -w -k -o ${CHECKPOINT_FILE_HERMES} -t 1m -b 128m -F -e -Y -O summaryFormat=CSV -O summaryFile=mpiio.w.csv -O summaryFile=h.mpiio.w.csv
+   ior -a=MPIIO -w -k -o ${CHECKPOINT_FILE_HERMES} -t 1m -b 128m -F -e -Y -O summaryFormat=CSV -O summaryFile=h.mpiio.w.csv
 sleep 3
 
 mpirun -n 1 -ppn 1 \
@@ -84,7 +84,7 @@ sleep 3
 
 ls
 rm *.hermes
-rm *.tmp
+rm *.tmp.*
 ls
 zip result *.csv
 
