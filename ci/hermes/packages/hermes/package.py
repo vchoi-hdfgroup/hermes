@@ -7,6 +7,8 @@ class Hermes(CMakePackage):
     # git = "https://github.com/HDFGroup/hermes.git"
     # git = "https://github.com/hyoklee/hermes.git"
     git = "https://github.com/vchoi-hdfgroup/hermes.git"
+    # Use the following if you don't want to run "git push" all the time.
+    git = "file:///scr/vchoi/hermes/"
     version('master', branch='master')
     depends_on('mochi-thallium~cereal@0.8.3')
     depends_on('catch2@2.13.3')
