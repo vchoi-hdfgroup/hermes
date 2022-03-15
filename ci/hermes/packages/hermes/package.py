@@ -5,7 +5,8 @@ class Hermes(CMakePackage):
     homepage = "http://www.cs.iit.edu/~scs/assets/projects/Hermes/Hermes.html"
     url = "https://github.com/HDFGroup/hermes/tarball/master"
     # git = "https://github.com/HDFGroup/hermes.git"
-    git = "https://github.com/hyoklee/hermes.git"
+    # git = "https://github.com/hyoklee/hermes.git"
+    git = "https://github.com/vchoi-hdfgroup/hermes.git"
     version('master', branch='master')
     depends_on('mochi-thallium~cereal@0.8.3')
     depends_on('catch2@2.13.3')
@@ -16,6 +17,7 @@ class Hermes(CMakePackage):
         args = ['-DCMAKE_INSTALL_PREFIX={}'.format(self.prefix),
                 '-DHERMES_RPC_THALLIUM=ON',
                 '-DHERMES_INSTALL_TESTS=ON',
+                '-DHERMES_ENABLE_VFD=ON',
                 '-DBUILD_TESTING=ON']
         return args
 
