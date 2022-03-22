@@ -18,7 +18,7 @@ class Hermes(CMakePackage):
                 '-DHERMES_RPC_THALLIUM=ON',
                 '-DHERMES_INSTALL_TESTS=ON',
                 '-DBUILD_TESTING=ON']
-        if '+vfd' in spec:
+        if '+vfd' in self.spec:
             args.append(self.define('HERMES_ENABLE_VFD', 'ON'))
         return args
 
