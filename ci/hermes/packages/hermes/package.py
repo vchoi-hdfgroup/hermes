@@ -5,7 +5,8 @@ class Hermes(CMakePackage):
     homepage = "http://www.cs.iit.edu/~scs/assets/projects/Hermes/Hermes.html"
     url = "https://github.com/HDFGroup/hermes/tarball/master"
     # git = "https://github.com/HDFGroup/hermes.git"
-    git = "https://github.com/hyoklee/hermes.git"
+    #git = "https://github.com/hyoklee/hermes.git"
+    git = "https://github.com/vchoi-hdfgroup/hermes.git"
     version('master', branch='master')
     variant('vfd', default=False, description='Enable HDF5 VFD')
     depends_on('mochi-thallium~cereal@0.8.3')
