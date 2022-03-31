@@ -13,7 +13,8 @@ class Ior(AutotoolsPackage):
     homepage = "https://github.com/hpc/ior"
     url      = "https://github.com/hpc/ior/archive/3.2.1.tar.gz"
 
-    version('hermes', git='https://github.com/ChristopherHogan/ior.git', branch='chogan/hermes', preferred=True)
+    version('hermes', git='https://github.com/vchoi-hdfgroup/ior.git', branch='chogan/hermes', preferred=True)
+    # version('hermes', git='https://github.com/ChristopherHogan/ior.git', branch='chogan/hermes', preferred=True)
     version('develop', git='https://github.com/hpc/ior.git', branch='main')
     version('3.3.0rc1', sha256='0e42ebf5b5adae60625bf97989c8e2519d41ea2e3d18561d7d5b945625317aa5')
     version('3.2.1', sha256='ebcf2495aecb357370a91a2d5852cfd83bba72765e586bcfaf15fb79ca46d00e')
